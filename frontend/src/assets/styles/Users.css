@@ -1,0 +1,28 @@
+.users-container {
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.users-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.users-table th,
+.users-table td {
+  padding: 15px;
+  border: 1px solid #00ffc8;
+}
+
+.users-table th {
+  background: #00ffc822;
+}
+
+.users-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
