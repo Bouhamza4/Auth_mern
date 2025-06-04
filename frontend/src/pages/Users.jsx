@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../assets/styles/Users.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   const fetchUsers = async () => {
     const token = localStorage.getItem("token");
@@ -18,6 +20,11 @@ const Users = () => {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
     fetchUsers();
   }, []);
 
@@ -27,11 +34,12 @@ const Users = () => {
       <table className="users-table">
         <thead>
           <tr>
-            
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            
+            <th>Filiere</th>
+
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +49,23 @@ const Users = () => {
               <td>{u.name}</td>
               <td>{u.email}</td>
               <td>{u.role}</td>
+              <td>{u.filiere}</td>
+              <td>
+                <Link
+                  //style css
+                  className="details-link"
+                  style={{
+                    textDecoration: "none",
+                    color: "blue",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    cursor: "pointer",
+                  }}
+                  to={`/user/${u._id}`}
+                >
+                  details
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -50,3 +75,4 @@ const Users = () => {
 };
 
 export default Users;
+

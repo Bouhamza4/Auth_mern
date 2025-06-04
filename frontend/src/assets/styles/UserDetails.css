@@ -1,0 +1,71 @@
+.user-details-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px 0 rgba(52, 144, 220, 0.1);
+  padding: 2rem;
+  border: 1px solid #e0f2fe;
+}
+
+.user-details-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.user-avatar {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  color: #fff;
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.1);
+}
+
+.user-details-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin: 0;
+}
+
+.user-details-filiere {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-top: 0.2rem;
+}
+
+.user-details-info {
+  color: #334155;
+  margin-bottom: 1.2rem;
+}
+
+.user-details-label {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.user-details-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #6366f1 0%, #38bdf8 100%);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+  border: none;
+  margin-top: 1.5rem;
+  float: right;
+}
+
+.user-details-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%);
+}
