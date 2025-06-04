@@ -2,6 +2,7 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+// bouhamza
 export const register = async (req, res) => {
  const { name, email, password } = req.body;
   try {
@@ -44,3 +45,40 @@ export const getAllUsers = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 };
+
+
+
+// Oussama
+export const getUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id).select("-password");
+    if (!user) return res.status(404).json({ msg: "User not found" });
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
+export const updatePassword = async (req, res) => {
+  const { id } = req.params;
+  const { oldPassword, newPassword } = req.body;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ msg: "User not found" });
+
+    const isMatch = await bcrypt.compare(oldPassword, user.password);
+    if (!isMatch) return res.status(400).json({ msg: "Invalid  password" });
+
+    const hash = await bcrypt.hash(newPassword, 10);
+    user.password = hash;
+    await user.save();
+    res.json({ msg: "Password updated" });
+  } catch (err) {
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
+
+
